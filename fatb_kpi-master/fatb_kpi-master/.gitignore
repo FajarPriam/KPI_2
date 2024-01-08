@@ -1,0 +1,7 @@
+# Ignore bin and obj folders in the KPI project
+KPI/bin/
+KPI/obj/
+
+# Ignore bin and obj folders in the KPI_API project
+KPI_API/bin/
+KPI_API/obj/

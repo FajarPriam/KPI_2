@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_FATB_KPI_KPT2" Class="DB_KPIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.TBL_M_DEPT_IN_CHARGE" Member="TBL_M_DEPT_IN_CHARGEs">
+    <Type Name="TBL_M_DEPT_IN_CHARGE">
+      <Column Name="ID" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_POINT_KPI_OFFICER_NONOM" Member="TBL_T_POINT_KPI_OFFICER_NONOMs">
+    <Type Name="TBL_T_POINT_KPI_OFFICER_NONOM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_KPI_ON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POINT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DSTRCT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_KPI_OFFICER" Member="TBL_M_KPI_OFFICERs">
+    <Type Name="TBL_M_KPI_OFFICER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_KPI_OFFICER_NONOM" Member="TBL_M_KPI_OFFICER_NONOMs">
+    <Type Name="TBL_M_KPI_OFFICER_NONOM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_O" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_DEPT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_POS_EVALUATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INPUT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INPUT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_MAPPING_MENU_ROLE" Member="TBL_M_MAPPING_MENU_ROLEs">
+    <Type Name="TBL_M_MAPPING_MENU_ROLE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MENU_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_MENU" Member="TBL_M_MENUs">
+    <Type Name="TBL_M_MENU">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_PARENT_MENU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MENU_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ICON" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[ORDER]" Member="ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_POS_ELP_EVALUATEE" Member="TBL_M_POS_ELP_EVALUATEEs">
+    <Type Name="TBL_M_POS_ELP_EVALUATEE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_POS_EVALUATEE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESC_POS_ELP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_POS_EVALUATEE" Member="TBL_M_POS_EVALUATEEs">
+    <Type Name="TBL_M_POS_EVALUATEE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_ROLE" Member="TBL_M_ROLEs">
+    <Type Name="TBL_M_ROLE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_USER" Member="TBL_M_USERs">
+    <Type Name="TBL_M_USER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_ROLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_EMPLOYEE_ELP" Member="VW_EMPLOYEE_ELPs">
+    <Type Name="VW_EMPLOYEE_ELP">
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POSITION_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POS_TITLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="WORK_LOC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="WORK_LOC_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_USER_PROFILE" Member="VW_USER_PROFILEs">
+    <Type Name="VW_USER_PROFILE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ROLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ROLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[USER]" Member="USER" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POSITION_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POS_TITLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_MENU_ROLE" Member="VW_MENU_ROLEs">
+    <Type Name="VW_MENU_ROLE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ROLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MENU_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PARENT_MENU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MENU_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ICON" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[ORDER]" Member="ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DEPARTMENT_ELP" Member="VW_DEPARTMENT_ELPs">
+    <Type Name="VW_DEPARTMENT_ELP">
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_PERIODE" Member="TBL_R_PERIODEs">
+    <Type Name="TBL_R_PERIODE">
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="START_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ITEM_KPI" Member="VW_ITEM_KPIs">
+    <Type Name="VW_ITEM_KPI">
+      <Column Name="ID_ON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM_ON" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM_DS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ID_KPI_O" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM_O" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ID_DEPT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_POS_EVALUATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_NILAI_KPI_O" Member="VW_NILAI_KPI_Os">
+    <Type Name="VW_NILAI_KPI_O">
+      <Column Name="ID_KPI_O" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSTRCT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM_DS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="NILAI_KPI" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_NILAI_EVALUASI_OFFICER_NONOM" Member="VW_NILAI_EVALUASI_OFFICER_NONOMs">
+    <Type Name="VW_NILAI_EVALUASI_OFFICER_NONOM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ITEM_ON" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DSTRCT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_KPI_ON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_O" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_DEPT" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_POS_EVALUATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POINT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nilai_evaluasi" Type="System.Decimal" DbType="Decimal(33,6)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_OF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ITEM_DS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_NILAI_KPI_DS" Member="VW_NILAI_KPI_Ds">
+    <Type Name="VW_NILAI_KPI_D">
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSTRCT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NILAI_KPI" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DSTRCT_ELP" Member="VW_DSTRCT_ELPs">
+    <Type Name="VW_DSTRCT_ELP">
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_STATUS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_SECTIONS" Member="VW_SECTIONs">
+    <Type Name="VW_SECTION">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_DESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION_DETAIL" Type="System.String" DbType="VarChar(57)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_SECTION" Member="TBL_M_SECTIONs">
+    <Type Name="TBL_M_SECTION">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE_DESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_KPI" Member="VW_M_KPIs">
+    <Type Name="VW_M_KPI">
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CODE_SECTION_DESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_NILAI_LEVEL_KPI" Member="VW_M_NILAI_LEVEL_KPIs">
+    <Type Name="VW_M_NILAI_LEVEL_KPI">
+      <Column Name="NILAI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="NILAI_LEVEL" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NILAI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_NILAI_LEVEL_KPI" Member="TBL_M_NILAI_LEVEL_KPIs">
+    <Type Name="TBL_M_NILAI_LEVEL_KPI">
+      <Column Name="NILAI" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NILAI_LEVEL" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NILAI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_PCI_OFFICER_NONOM" Member="TBL_M_PCI_OFFICER_NONOMs">
+    <Type Name="TBL_M_PCI_OFFICER_NONOM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_KPI" Member="TBL_M_KPIs">
+    <Type Name="TBL_M_KPI">
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_KPI_DEPT_SECT" Member="TBL_M_KPI_DEPT_SECTs">
+    <Type Name="TBL_M_KPI_DEPT_SECT">
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_MAPPING_KPI" Member="TBL_M_MAPPING_KPIs">
+    <Type Name="TBL_M_MAPPING_KPI">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_KPI_DS" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_MAPPING_KPI_DS" Member="VW_M_MAPPING_KPI_Ds">
+    <Type Name="VW_M_MAPPING_KPI_D">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KPI_DS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_MAPPING_KPI" Member="VW_M_MAPPING_KPIs">
+    <Type Name="VW_M_MAPPING_KPI">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_MAPPING_KPI_DS_HEAD" Member="VW_M_MAPPING_KPI_DS_HEADs">
+    <Type Name="VW_M_MAPPING_KPI_DS_HEAD">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_MAPPING_KPI_ON" Member="VW_M_MAPPING_KPI_ONs">
+    <Type Name="VW_M_MAPPING_KPI_ON">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_MAPPING_KPI_ON" Member="TBL_M_MAPPING_KPI_ONs">
+    <Type Name="TBL_M_MAPPING_KPI_ON">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_MAPPING_KPI_ON_BY_CODE" Member="VW_M_MAPPING_KPI_ON_BY_CODEs">
+    <Type Name="VW_M_MAPPING_KPI_ON_BY_CODE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_T_ASSESSMENT_DS_ON" Member="VW_T_ASSESSMENT_DS_ONs">
+    <Type Name="VW_T_ASSESSMENT_DS_ON">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_ASSESSMENT" Member="TBL_T_ASSESSMENTs">
+    <Type Name="TBL_T_ASSESSMENT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ASSESSMENT_DS_ON" Member="VW_ASSESSMENT_DS_ONs">
+    <Type Name="VW_ASSESSMENT_DS_ON">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_ASSESSMENT_ON_TEMP" Member="TBL_T_ASSESSMENT_ON_TEMPs">
+    <Type Name="TBL_T_ASSESSMENT_ON_TEMP">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_ASSESSMENT_ON" Member="TBL_T_ASSESSMENT_ONs">
+    <Type Name="TBL_T_ASSESSMENT_ON">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ASSESSMENT_ON_CS" Member="VW_ASSESSMENT_ON_Cs">
+    <Type Name="VW_ASSESSMENT_ON_C">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ASSESSMENT_ON_CS_BY_FILTER" Member="VW_ASSESSMENT_ON_CS_BY_FILTERs">
+    <Type Name="VW_ASSESSMENT_ON_CS_BY_FILTER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MAPPING" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ASSESSMENT_DS_ON_BY_FILTER" Member="VW_ASSESSMENT_DS_ON_BY_FILTERs">
+    <Type Name="VW_ASSESSMENT_DS_ON_BY_FILTER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MAPPING" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_KPI_DS" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_EXCEL_ASSESSMENT_DS" Member="VW_EXCEL_ASSESSMENT_Ds">
+    <Type Name="VW_EXCEL_ASSESSMENT_D">
+      <Column Name="KPI_KABAG_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_KABAG" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="[PLAN]" Member="PLAN" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CABANG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_EXCEL_ASSESSMENT_ON" Member="VW_EXCEL_ASSESSMENT_ONs">
+    <Type Name="VW_EXCEL_ASSESSMENT_ON">
+      <Column Name="KPI" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[PLAN]" Member="PLAN" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_KPI_CASHIER" Member="TBL_M_KPI_CASHIERs">
+    <Type Name="TBL_M_KPI_CASHIER">
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_SECTIONS_CASHIER" Member="VW_SECTIONS_CASHIERs">
+    <Type Name="VW_SECTIONS_CASHIER">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_DESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION_DETAIL" Type="System.String" DbType="VarChar(57)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_NILAI_LEVEL_KPICASHIER" Member="TBL_M_NILAI_LEVEL_KPICASHIERs">
+    <Type Name="TBL_M_NILAI_LEVEL_KPICASHIER">
+      <Column Name="NILAI" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NILAI_LEVEL" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NILAI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_M_NILAI_LEVEL_KPICASHIER" Member="VW_M_NILAI_LEVEL_KPICASHIERs">
+    <Type Name="VW_M_NILAI_LEVEL_KPICASHIER">
+      <Column Name="NILAI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="NILAI_LEVEL" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NILAI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_ASSESSMENT_TEMP" Member="TBL_T_ASSESSMENT_TEMPs">
+    <Type Name="TBL_T_ASSESSMENT_TEMP">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLAN_ACH" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_SETTING_DATE" Member="TBL_R_SETTING_DATEs">
+    <Type Name="TBL_R_SETTING_DATE">
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="START_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FINISH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.cufn_generateKPICode" Method="cufn_generateKPICode" IsComposable="true">
+    <Parameter Name="codeSection" Type="System.String" DbType="VarChar(5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cufn_GetTabelKPION" Method="cufn_GetTabelKPION" IsComposable="true">
+    <ElementType Name="cufn_GetTabelKPIONResult">
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CODE_DESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CODE_SECT_TEMP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_EDIT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetTabelEditKPI" Method="cufn_GetTabelEditKPI" IsComposable="true">
+    <Parameter Name="code_section" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="cufn_GetTabelEditKPIResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_EDIT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_generateKPICodeDS" Method="cufn_generateKPICodeDS" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cufn_GetTabelMappingKPI" Method="cufn_GetTabelMappingKPI" IsComposable="true">
+    <ElementType Name="cufn_GetTabelMappingKPIResult">
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetKPIONMappingChild" Method="cufn_GetKPIONMappingChild" IsComposable="true">
+    <Parameter Name="kpi_code" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="cufn_GetKPIONMappingChildResult">
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetKPIONMappingParent" Method="cufn_GetKPIONMappingParent" IsComposable="true">
+    <ElementType Name="cufn_GetKPIONMappingParentResult">
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetTabelMappingKPION" Method="cufn_GetTabelMappingKPION" IsComposable="true">
+    <ElementType Name="cufn_GetTabelMappingKPIONResult">
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KODE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ID_KODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cusp_InsertAssessmentDS" Method="cusp_InsertAssessmentDS">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cusp_InsertAssessmentON" Method="cusp_InsertAssessmentON">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cufn_GetTabelAssessmentON_ByFilter" Method="cufn_GetTabelAssessmentON_ByFilter" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="periode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_GetTabelAssessmentON_ByFilterResult">
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetTabelAssessmentDS" Method="cufn_GetTabelAssessmentDS" IsComposable="true">
+    <ElementType Name="cufn_GetTabelAssessmentDSResult">
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CABANG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetTabelAssessmentON" Method="cufn_GetTabelAssessmentON" IsComposable="true">
+    <ElementType Name="cufn_GetTabelAssessmentONResult">
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetTabelAssessmentDS_ByFilter" Method="cufn_GetTabelAssessmentDS_ByFilter" IsComposable="true">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="periode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cufn_GetTabelAssessmentDS_ByFilterResult">
+      <Column Name="KPI_DS_ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CABANG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetExcelAssessmentDS" Method="cufn_GetExcelAssessmentDS" IsComposable="true">
+    <ElementType Name="cufn_GetExcelAssessmentDSResult">
+      <Column Name="KPI_KABAG_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_KABAG" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="[PLAN]" Member="PLAN" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TEMP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CABANG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_GetTabelKPICash" Method="cufn_GetTabelKPICash" IsComposable="true">
+    <ElementType Name="cufn_GetTabelKPICashResult">
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CODE_DESC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CODE_SECT_TEMP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_EDIT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cufn_generateKPICash_Code" Method="cufn_generateKPICash_Code" IsComposable="true">
+    <Parameter Name="codeSection" Type="System.String" DbType="VarChar(5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cufn_GetTabelEditKPI_Cash" Method="cufn_GetTabelEditKPI_Cash" IsComposable="true">
+    <Parameter Name="code_section" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="cufn_GetTabelEditKPI_CashResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODE_SECTION" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESKRIPSI" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EDIT_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDIT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_EDIT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cusp_GetAssessmentON" Method="cusp_GetAssessmentON">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="periode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cusp_GetAssessmentONResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_ON" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_DESC" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="isParent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.cusp_GetAssessmentDS" Method="cusp_GetAssessmentDS">
+    <Parameter Name="district" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="periode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="cusp_GetAssessmentDSResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_KPI_DS" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KPI_DS_DESC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="KPI_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="KPI_ITEM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TARGET" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="JUMLAH_BOBOT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="PLAN_ACH" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ACHIEVMENT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NILAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="JUMLAH_NILAI_FOR_KABAG" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_PIC_OFFICER_NONOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INITIALS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CABANG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isParent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewBag.Title = "MappingKPI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .card {
+        box-shadow: 0 1px 1px 2px rgba(220,225,232,.5), 0 1px 2px rgba(220,225,232,.5)
+    }
+</style>
+
+<h2>Mapping KPI</h2>
+
+@if (@Session["Profile"].ToString() == "Admin")
+{
+    <section class="section">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <form id="formUploadMapping" action='@(Session["path_api"] + "Create_ExcelMapping")' method="post" enctype="multipart/form-data">
+                        <h4 class="card-title">Upload Mapping KPI</h4>
+                        <button class="btn btn-primary block mb-2" type="button" onclick="DownloadTemplate()">Download Template</button>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Upload File Excel</label>
+                            <input id="excel_mapping" class="form-control" type="file" name="filename">
+                        </div>
+                        <button type="submit" class="btn btn-primary block mb-2">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Mapping KPI Dept/Sect Head</h4>
+                @*<button type="button" class="btn btn-primary block mb-2"
+                            data-bs-toggle="modal" data-bs-target="#modalAdd_DS" onclick="resetModal_DS()">
+                        Add New
+                    </button>*@
+                <div class="table-responsive">
+                    <table class="table" id="tbl_kpi_ds">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">Action</th>
+                                <th class="text-center" scope="col">KPI</th>
+                                <th class="text-center" scope="col">KPI Item</th>
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">PIC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Mapping KPI Officer Cashier</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAdd_MasterON" onclick="resetModal_DS()">
+                    Add New
+                </button>
+                <div class="table-responsive">
+                    <table class="table" id="tbl_kpi_on">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">Action</th>
+                                <th class="text-center" scope="col">KPI</th>
+                                <th class="text-center" scope="col">KPI Item</th>
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">PIC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="modalAdd_DS" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    @*<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document">*@
+    <div class="modal-dialog modal-lg"
+         role="document">
+        <form id="FormKPI_DE" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Mapping KPI Dept/Sect Head
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>KPI Sect/Dept Head</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name="KPI_CODE" hidden />
+                                <input type="text" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <input type="text" id="KPI_DS_Head" name="KPI_DS_Head" class="form-control" readonly>
+                                <input type="text" id="ID_KPI_DS_Head" name="ID_KPI_DS_Head" class="form-control" hidden>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tbl_MappingKPI">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">ID</th>
+                                        <th class="text-center" scope="col">Action</th>
+                                        <th class="text-center" scope="col">KPI Code</th>
+                                        <th class="text-center" scope="col">KPI Deskripsi</th>
+                                        <th class="text-center" scope="col">Bobot</th>
+                                        <th class="text-center" scope="col">PIC</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div id="btn_AddMapping"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_closeMappingKPI" type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAdd_MasterON" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog"
+         role="document">
+        <form id="FormKPI_AddON" action='@(Session["path_api"] + "AddMappingKPION")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        KPI Officer/Cashier
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>KPI</label>
+                            </div>
+                            <div class="col-md-12 form-group">
+
+                                <select class="form-select select2" style="width:100%" name="ID_KPI_ON" id="onItem">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAdd_MappingON" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg"
+         role="document">
+        <form id="FormKPI_MappingON" action='@(Session["path_api"] + "SubmitAllMappingON")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        KPI Officer/Cashier
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>KPI</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <input type="text" id="ID_KPI_ON_edit" name="ID_KPI_ON" class="form-control" hidden>
+                                <input type="text" id="NAME_KPI_ON_edit" name="NAME_KPI_ON_edit" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tbl_MappingKPION">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">ID</th>
+                                        <th class="text-center" scope="col">Action</th>
+                                        <th class="text-center" scope="col">KPI Code</th>
+                                        <th class="text-center" scope="col">KPI Deskripsi</th>
+                                        <th class="text-center" scope="col">Bobot</th>
+                                        <th class="text-center" scope="col">PIC</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div id="btn_AddMappingON"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_closeMappingKPION" type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Page_MasterMappingKPI.js"></script>
+}

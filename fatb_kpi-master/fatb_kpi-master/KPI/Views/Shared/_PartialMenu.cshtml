@@ -1,0 +1,61 @@
+﻿@using KPI.Models;
+@model IEnumerable<ViewMenuDto>
+
+<ul class="menu">
+    @foreach (var item in Model.Where(a => a.ID_PARENT_MENU == 0))
+    {
+        if (item.ID_PARENT_MENU == 0 && item.URL == "#")
+        {
+            <li class="sidebar-item has-sub @(IsSubMenuActive(item) ? "active" : "")">
+                <a href="#" class='sidebar-link'>
+                    <i class="@item.ICON"></i>
+                    <span>@item.MENU_DESC</span>
+                </a>
+                @SubMenu(item)
+            </li>
+        }
+        else
+        {
+            <li class="sidebar-item @(IsMenuActive(item) ? "active" : "")">
+                <a href="@item.URL" class='sidebar-link'>
+                    <i class="@item.ICON"></i>
+                    <span>@item.MENU_DESC</span>
+                </a>
+            </li>
+        }
+    }
+</ul>
+
+@helper SubMenu(KPI.Models.ViewMenuDto item)
+{
+    <ul class="submenu @(IsSubMenuActive(item) ? "active" : "")">
+        @foreach (var sub in Model.Where(a => a.ID_PARENT_MENU == item.MENU_ID))
+        {
+            <li class="submenu-item  @(IsMenuActive(sub) ? "active" : "")">
+                <a href="@sub.URL">@sub.MENU_DESC</a>
+            </li>
+        }
+    </ul>
+}
+
+@functions {
+    bool IsMenuActive(ViewMenuDto menu)
+    {
+        return menu.URL == Request.Path;
+    }
+
+    bool IsSubMenuActive(ViewMenuDto submenu)
+    {
+
+        var cekSubMenu = Model.Where(a => a.ID_PARENT_MENU == submenu.MENU_ID);
+        foreach (var subMenu in cekSubMenu)
+        {
+            if (subMenu.URL == Request.Path)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

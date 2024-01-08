@@ -1,0 +1,696 @@
+﻿
+@{
+    ViewBag.Title = "KPI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<input type="hidden" id="hd_userLogin" value="@Session["Nrp"].ToString()" />
+
+<h2>KPI</h2>
+
+@if (@Session["Profile"].ToString() == "Admin")
+{
+    <section class="section">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <form id="formUploadItem" action='@(Session["path_api"] + "Create_ExcelKPI")' method="post" enctype="multipart/form-data">
+                        <h4 class="card-title">Upload item KPI</h4>
+                        <button class="btn btn-primary block mb-2" type="button" onclick="DownloadTemplate()">Download Template</button>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Upload File Excel</label>
+                            <input id="excel_kpi" class="form-control" type="file" name="filename">
+                        </div>
+                        <button type="submit" class="btn btn-primary block mb-2">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Master KPI Officer</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAddON" onclick="resetModalON()">
+                    Add New
+                </button>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalUpdateExcel" onclick="resetModalUP_ON()">
+                    Update by Excel
+                </button>
+
+                <div class="table-responsive">
+                    <table class="table table-striped" id="tbl_kpi">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">Action</th>
+                                <th class="text-center" scope="col">Code Section</th>
+                                <th class="text-center" scope="col">Section</th>
+                                <th class="text-center" scope="col">Level</th>
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Item</th>
+                                <th class="text-center" scope="col">Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">Target</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Master KPI Cashier</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAddCash" onclick="resetModalCash()">
+                    Add New
+                </button>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalUpdateExcel_Cash" @*onclick="resetModalCashier()"*@>
+                    Update by Excel
+                </button>
+
+                <div class="table-responsive">
+                    <table class="table table-striped" id="tbl_kpi_cash">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">Action</th>
+                                <th class="text-center" scope="col">Code Section</th>
+                                <th class="text-center" scope="col">Section</th>
+                                <th class="text-center" scope="col">Level</th>
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Item</th>
+                                <th class="text-center" scope="col">Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">Target</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Master KPI Dept/Sect Head</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAdd_MasterDS" onclick="resetModal_MasterDS()">
+                    Add New
+                </button>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalUpdateExcel_DS" @*onclick="resetModalDept_N()"*@>
+                    Update by Excel
+                </button>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="tbl_kpi_MasterDS">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">Action</th>
+                                <th class="text-center" scope="col">ID</th>
+                                <th class="text-center" scope="col">KPI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="modal fade" id="modalAddON" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="FormKPI" action='@(Session["path_api"] + "CreateOrUpdateON")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Insert KPI Officer
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Section</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name="KPI_CODE" hidden />
+                                <input type="text" id="editBy_ON" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <select class="form-select select2" style="width:100%" name="CODE_SECTION" id="dsItem">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <table class="table table-striped" id="tbl_kpiSection">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">Action</th>
+                                    <th class="text-center" scope="col">KPI Code</th>
+                                    <th class="text-center" scope="col">KPI Item</th>
+                                    <th class="text-center" scope="col">Deskripsi</th>
+                                    <th class="text-center" scope="col">Bobot (%)</th>
+                                    <th class="text-center" scope="col">Plan</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary" id="kpiAdd_btn" onclick="AddKPI()">ADD</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAddCash" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="FormKPICash" action='@(Session["path_api"] + "CreateOrUpdateCash")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Insert KPI Cashier
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Section</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name="KPI_CODE_Cash" hidden />
+                                <input type="text" id="editBy_Cash" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <select class="form-select select2" style="width:100%" name="CODE_SECTION_Cash" id="dsItem_Cash">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <table class="table table-striped" id="tbl_kpiCash">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">Action</th>
+                                    <th class="text-center" scope="col">KPI Code</th>
+                                    <th class="text-center" scope="col">KPI Item</th>
+                                    <th class="text-center" scope="col">Deskripsi</th>
+                                    <th class="text-center" scope="col">Bobot (%)</th>
+                                    <th class="text-center" scope="col">Plan</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary" id="kpiAddCash_btn" onclick="AddKPI_Cash()">ADD</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalUpdateExcel" role="dialog"
+     aria-labelledby="modalUpdateExcelTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="formUpdateItem" action='@(Session["path_api"] + "Update_ExcelKPI")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalUpdateExcelTitle">
+                        Update KPI Officer by Excel
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <button class="btn btn-primary block mb-2" type="button" onclick="DownloadAllData()">Download All Data</button>
+                        <div class="mb-3">
+                            <label for="formFile_Up" class="form-label">Upload File Excel</label>
+                            <input id="excelUp_kpi" class="form-control" type="file" name="filename">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Upload</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalUpdateExcel_Cash" role="dialog"
+     aria-labelledby="modalUpdateExcelTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="formUpdateItem_Cash" action='@(Session["path_api"] + "Update_ExcelCash")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalUpdateExcelTitle">
+                        Update KPI Cashier by Excel
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <button class="btn btn-primary block mb-2" type="button" onclick="DownloadAllData_Cash()">Download All Data</button>
+                        <div class="mb-3">
+                            <label for="formFile_UpCash" class="form-label">Upload File Excel</label>
+                            <input id="excelUp_kpiCash" class="form-control" type="file" name="filename">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Upload</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalUpdateExcel_DS" role="dialog"
+     aria-labelledby="modalUpdateExcelTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="formUpdateItem_DS" action='@(Session["path_api"] + "Update_ExcelDS")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalUpdateExcelTitle">
+                        Update KPI Cashier by Excel
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <button class="btn btn-primary block mb-2" type="button" onclick="DownloadAllData_DS()">Download All Data</button>
+                        <div class="mb-3">
+                            <label for="formFile_UpDS" class="form-label">Upload File Excel</label>
+                            <input id="excelUp_kpiDS" class="form-control" type="file" name="filename">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Upload</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditON" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="FormKPI_Edit" action='@(Session["path_api"] + "CreateOrUpdateON")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Update KPI Officer
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Section</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name="KPI_CODE" hidden />
+                                <input type="text" id="editBy_ON_edit" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <select class="form-select select2" style="width:100%" name="CODE_SECTION" id="dsItem_Edit">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tbl_kpiSection_Edit">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">ID</th>
+                                        <th class="text-center" scope="col">Action</th>
+                                        <th class="text-center" scope="col">KPI Code</th>
+                                        <th class="text-center" scope="col">KPI Item</th>
+                                        <th class="text-center" scope="col">Deskripsi</th>
+                                        <th class="text-center" scope="col">Bobot (%)</th>
+                                        <th class="text-center" scope="col">Plan</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary" id="kpiAdd_btn" onclick="AddKPI_Edit()">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_closeEditKPI" type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalEditCash" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="FormKPI_EditCash" action='@(Session["path_api"] + "CreateOrUpdateCash")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Update KPI Cashier
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Section</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name="KPI_CODE" hidden />
+                                <input type="text" id="editBy_Cash_edit" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <select class="form-select select2" style="width:100%" name="CODE_SECTION_EditCash" id="dsItem_CashEdit">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tbl_kpiCash_Edit">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">ID</th>
+                                        <th class="text-center" scope="col">Action</th>
+                                        <th class="text-center" scope="col">KPI Code</th>
+                                        <th class="text-center" scope="col">KPI Item</th>
+                                        <th class="text-center" scope="col">Deskripsi</th>
+                                        <th class="text-center" scope="col">Bobot (%)</th>
+                                        <th class="text-center" scope="col">Plan</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary" id="kpiAddCash_btn" onclick="AddKPI_CashEdit()">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_closeEditKPI_Cash" type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalAddLevel" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="FormAddLevel" action='@(Session["path_api"] + "AddLevelKPI")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Add Level KPI
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>KPI Item</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="kpiCode_lvlModal" name="KPI_CODE" hidden />
+                                <input type="text" id="editBy_lvlModal" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <input type="text" id="itemKPI_lvlModal" name="KPI_ITEM" style="width:100%" disabled />
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tbl_levelKPI">
+                                <thead>
+                                    <tr>
+
+                                        @*<th class="text-center" scope="col">Action</th>*@
+                                        <th class="text-center" scope="col">Nilai</th>
+                                        <th class="text-center" scope="col">KPI Code</th>
+                                        <th class="text-center" scope="col">Nilai Level</th>
+                                        <th class="text-center" scope="col">Nilai Desc</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="kpiAdd_btn" onclick="AddKPI()">ADD</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAddLevel_Cash" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg "
+         role="document">
+        <form id="FormAddLevel_Cash" action='@(Session["path_api"] + "AddLevelKPI_Cash")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        Add Level KPI
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>KPI Item</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="kpiCode_lvlModal_Cash" name="KPI_CODE_Cash" hidden />
+                                <input type="text" id="editBy_lvlModal_Cash" name="EDIT_BY_Cash" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <input type="text" id="itemKPI_lvlModal_Cash" name="KPI_ITEM_Cash" style="width:100%" disabled />
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tbl_levelKPI_Cash">
+                                <thead>
+                                    <tr>
+
+                                        @*<th class="text-center" scope="col">Action</th>*@
+                                        <th class="text-center" scope="col">Nilai</th>
+                                        <th class="text-center" scope="col">KPI Code</th>
+                                        <th class="text-center" scope="col">Nilai Level</th>
+                                        <th class="text-center" scope="col">Nilai Desc</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="kpiAdd_Cashbtn" onclick="AddKPI_Cash()">ADD</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--ini yg dipindah ke mapping kpi-->
+<div class="modal fade" id="modalAdd_MasterDS" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog"
+         role="document">
+        <form id="FormKPI_MasterDE" action='@(Session["path_api"] + "CreateOrUpdateDS")' method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddTitle">
+                        KPI Dept/Sect Head
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4" hidden>
+                                <label>ID</label>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" name="EDIT_BY" class="form-control" value="@Session["Nrp"].ToString()" hidden>
+                                <input type="text" name="KPI_DS_ID" class="form-control" readonly hidden>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>KPI</label>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" name="KPI_DS_DESC" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/Scripts/Page_MasterKPI.js"></script>
+}

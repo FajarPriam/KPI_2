@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Dept";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <img class="card-img-top img-fluid" src="~/Content/assets/images/samples/origami.jpg"
+                 alt="Card image cap" style="height: 5rem" />
+            <div class="card-body">
+                <h4 class="card-title">Master Dept</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAdd" onclick="resetModal()">
+                    Add Dept
+                </button>
+                <table class="table table-striped" id="tbl_dept">
+                    <thead>
+                        <tr>
+                            <th scope="col">Action</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">DEPT</th>
+                            <th scope="col">DEPT_CODE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal fade" id="modalAdd" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+         role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAddTitle">
+                    Insert or Update Dept
+                </h5>
+                <button type="button" class="close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>ID</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <input type="text" id="id_dept" class="form-control"
+                                   placeholder="ID">
+                        </div>
+                        <div class="col-md-4">
+                            <label>DEPT</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <input type="text" id="dept" class="form-control"
+                                   placeholder="Dept">
+                        </div>
+                        <div class="col-md-4">
+                            <label>DEPT CODE</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <select class="form-select select2" style="width:100%" id="dept_code">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary"
+                        data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+                <button type="button" class="btn btn-primary ml-1" id="btn_submit" onclick="InsertOrUpdateDept()">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Submit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Page_MasterDept.js"></script>
+}

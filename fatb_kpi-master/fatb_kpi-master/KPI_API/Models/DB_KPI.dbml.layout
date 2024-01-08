@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13, 11.75" name="DB_KPI">
+  <DataContextMoniker Name="/DB_KPIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1ba27ef2-0ef4-425f-96d3-abb101f97666" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_DEPT_IN_CHARGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62d7faae-3aef-414a-a88b-1292b7cb105a" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11f3e4b4-1cee-49e9-97b9-8da60a0a0cbb" isExpanded="false" absoluteBounds="0.5, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_T_POINT_KPI_OFFICER_NONOM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d34bd4f-0cff-46a1-9666-b49f0329dc4a" absoluteBounds="0.51500000000000012, 4.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b35f39f2-f57f-435b-a017-aed2d75d8140" isExpanded="false" absoluteBounds="0.5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_KPI_OFFICER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a5c02f2-1b69-4b2b-ae8d-c73698a86006" absoluteBounds="0.51500000000000012, 2.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fae4bb05-d93d-4487-967f-6a8da53a7028" isExpanded="false" absoluteBounds="0.5, 5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_KPI_OFFICER_NONOM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b100a68-921e-4e83-82e4-8130b8a2e42d" absoluteBounds="0.51499999999999968, 5.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5f3711b-dc6d-429a-9521-b5d8b6ca24df" isExpanded="false" absoluteBounds="0.5, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_MAPPING_MENU_ROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="888a5ecb-09c4-4329-ad91-8e50df9c8887" absoluteBounds="0.515, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59c671a6-a56a-4ef9-9fc5-9ac023ddbcbe" isExpanded="false" absoluteBounds="0.5, 3, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e824a588-7981-43c7-a68e-52318d93011e" absoluteBounds="0.51500000000000012, 3.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="87139313-53b9-477e-833c-92d160b66cce" isExpanded="false" absoluteBounds="0.5, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_POS_ELP_EVALUATEE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3831946b-56d5-4bc3-8986-47ba3f52323e" absoluteBounds="0.51499999999999968, 3.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9171201d-ab2c-4179-8dda-65840189a4f4" isExpanded="false" absoluteBounds="0.5, 4, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_POS_EVALUATEE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23501548-8a15-46ea-8e42-5b15fd1ba08c" absoluteBounds="0.51499999999999968, 4.4600000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da01e575-a694-434a-90d7-b8f1f3887513" isExpanded="false" absoluteBounds="0.5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_ROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7434eb5-03d1-46c4-b5d8-235d7a914b0d" absoluteBounds="0.51500000000000057, 5.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abe74bf4-d925-48b4-9c70-a65ad7ebd351" isExpanded="false" absoluteBounds="0.5, 2, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5791b69a-e2b3-4151-af36-f764ad944508" absoluteBounds="0.515, 2.4600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0d4dda24-34fe-49da-a029-cfc39fabd9c4" isExpanded="false" absoluteBounds="2.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_EMPLOYEE_ELP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6fd2058-ef36-48ae-b290-3c6d817d0391" absoluteBounds="2.765, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7310893f-6e08-43de-91d7-3d3e1e39ed91" isExpanded="false" absoluteBounds="2.75, 1, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_USER_PROFILE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="740f68ae-6e5f-4b76-80d1-58af1b4a986b" absoluteBounds="2.765, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="644e81a0-a328-47ec-b315-7549cd30582d" isExpanded="false" absoluteBounds="2.75, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_MENU_ROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48accc2c-ac12-4dab-af0e-c32c86918c27" absoluteBounds="2.7649999999999997, 1.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d37ba0c-0533-415b-8ae4-82c61b9c372e" isExpanded="false" absoluteBounds="2.75, 2, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_DEPARTMENT_ELP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="170e5295-c61f-4cf9-9333-313f967ef854" absoluteBounds="2.7649999999999997, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cd86521-6885-493b-ad2f-f227dcd164d5" isExpanded="false" absoluteBounds="5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_R_PERIODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1f59ef9-16f0-49b8-82a7-056b406a60ec" absoluteBounds="5.015, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b6cb2f7-dc72-4d07-8ecb-8efe43bc0020" isExpanded="false" absoluteBounds="5, 1, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_ITEM_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0eb1a9ea-6894-45a8-a220-5646a306360d" absoluteBounds="5.015, 1.46, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c557264e-34be-47e8-9245-82954c1e79d6" isExpanded="false" absoluteBounds="2.75, 3, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_NILAI_KPI_O" />
+      <nestedChildShapes>
+        <elementListCompartment Id="580e8484-3a65-41d9-9c1c-d4e1cba6acf4" absoluteBounds="2.765, 3.46, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de844b32-5dc1-4c7f-ad31-69d9266b5440" isExpanded="false" absoluteBounds="2.75, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_NILAI_EVALUASI_OFFICER_NONOM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a28cbc67-dc86-4dc0-a209-4f1294ae5fa0" absoluteBounds="2.7649999999999997, 3.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a953ee54-441b-402e-a249-d3ce1589231b" isExpanded="false" absoluteBounds="2.75, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_NILAI_KPI_D" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20342c3f-1268-48b6-a48f-75fa55a2f445" absoluteBounds="2.7649999999999997, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="015a411a-94a7-40e3-8908-643c42a0e826" isExpanded="false" absoluteBounds="8.5, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_DSTRCT_ELP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f98fb0bd-c26f-4409-8762-767f6fd08a8d" absoluteBounds="8.515, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="023af8a9-7cee-4061-81cb-4f1c3fd75e8f" isExpanded="false" absoluteBounds="8.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_SECTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b518a0d0-5fe8-4223-ac7b-24bd55c16ec1" absoluteBounds="8.515, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="978cbd64-4cc2-4e56-847a-645b5376c5b7" isExpanded="false" absoluteBounds="10.75, 1, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_SECTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="860a7b75-e6c4-456e-bdbc-46df25989683" absoluteBounds="10.765, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71673245-dd2a-4547-86b4-c8078be8c9ad" isExpanded="false" absoluteBounds="8.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="39de5c95-879a-44be-b528-6f62201a9dfa" absoluteBounds="8.515, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9cf0545-b1d8-4250-80f7-e24209e3731b" isExpanded="false" absoluteBounds="8.5, 2, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_NILAI_LEVEL_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7e4a241-fd5b-412a-8fda-8f201255ab29" absoluteBounds="8.515, 2.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="79030747-0a19-4101-ad2e-d851d74d47c5" isExpanded="false" absoluteBounds="0.5, 6, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_NILAI_LEVEL_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65825843-0368-4d68-a9d8-0f8fffaa1d6b" absoluteBounds="0.51499999999999968, 6.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="369e620a-2743-4c11-b770-b88a152e9177" isExpanded="false" absoluteBounds="0.5, 7, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_PCI_OFFICER_NONOM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b379cdb2-82ef-4f75-811e-837d775d5550" absoluteBounds="0.51499999999999968, 7.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b63c9a34-c1f8-4625-bbd0-208968ac3263" isExpanded="false" absoluteBounds="10.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6b39e5d-c018-46ce-8c3d-c6a19c3310f5" absoluteBounds="10.765, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="188988e3-c679-4e1e-96ef-84164dcd69d1" isExpanded="false" absoluteBounds="0.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_KPI_DEPT_SECT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e36bb8f-f5db-456c-b2d7-e65aa121875a" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7d4ea3b0-3786-4a6d-84de-a20c84d3719a" isExpanded="false" absoluteBounds="0.5, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_MAPPING_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2d648dc-6115-4701-976c-580087f2e482" absoluteBounds="0.51499999999999968, 6.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eac6c79f-aa83-468a-8b15-7121a61b704a" isExpanded="false" absoluteBounds="5, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_MAPPING_KPI_D" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de30265e-675c-4ced-879a-168b132aecf2" absoluteBounds="5.015, 1.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d67999d5-942c-4fb6-9e04-ba16c5c027e5" isExpanded="false" absoluteBounds="2.75, 4, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_MAPPING_KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e16e5592-9c70-41f0-8bcb-6f014300c1f8" absoluteBounds="2.7649999999999997, 4.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="422bb1b1-aa09-423d-9c25-639f94695fd5" isExpanded="false" absoluteBounds="8.5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_MAPPING_KPI_DS_HEAD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa49ab94-44a7-438b-b2da-d844bbacd96d" absoluteBounds="8.515, 2.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59b8ec7d-a0ea-4621-858c-0537186bfe0e" isExpanded="false" absoluteBounds="5, 2, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_MAPPING_KPI_ON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0fb2392b-fe43-4daa-8212-ab8ba45d94f8" absoluteBounds="5.015, 2.46, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4edfb21-9f4b-4896-81e5-f347f08c7f2a" isExpanded="false" absoluteBounds="0.5, 7.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_MAPPING_KPI_ON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01ff0b78-5a1e-4bd8-9cff-2a190162c615" absoluteBounds="0.51499999999999968, 7.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7780bc9f-0901-40ea-8401-346ed75bb1a5" isExpanded="false" absoluteBounds="5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_MAPPING_KPI_ON_BY_CODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6282dfe3-1c42-4751-a6f0-50f6f1c0271d" absoluteBounds="5.015, 2.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4234390f-4342-49ef-957b-79c5385b3375" isExpanded="false" absoluteBounds="5, 3, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_T_ASSESSMENT_DS_ON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="260d8369-fc41-43bc-9d77-587cb36169c6" absoluteBounds="5.015, 3.46, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1ff0c763-c22e-49a7-8173-8f72968bab7e" isExpanded="false" absoluteBounds="0.5, 8.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_T_ASSESSMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a865df7-91f7-4e05-a599-106790044b9f" absoluteBounds="0.51499999999999968, 8.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9495cbef-05b7-4b0e-b294-965719373ef0" isExpanded="false" absoluteBounds="5, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_ASSESSMENT_DS_ON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c795407-af4a-43ff-89d1-ef7c66547bb4" absoluteBounds="5.015, 3.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2068f95b-4f2a-40f4-8554-435a62ceb7ea" isExpanded="false" absoluteBounds="0.5, 9.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_T_ASSESSMENT_ON_TEMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cb7ce228-cb2d-4e45-a2fd-ccc487223b2a" absoluteBounds="0.51499999999999968, 9.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f30dffb6-80f3-466d-9b7a-4a406928e0c9" isExpanded="false" absoluteBounds="0.5, 9, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_T_ASSESSMENT_ON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e6d83e3-75bc-4c57-a882-96795d71ca9a" absoluteBounds="0.51499999999999968, 9.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0bf2420c-2e64-4ca0-9d25-df81dc36f093" isExpanded="false" absoluteBounds="5, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_ASSESSMENT_ON_C" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9289e9a8-eed8-4f01-964a-741bcc72f5e8" absoluteBounds="5.015, 4.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43c65abb-7b5a-4a36-9e0b-f7e496cf2e22" isExpanded="false" absoluteBounds="5, 5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_ASSESSMENT_ON_CS_BY_FILTER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e07b20a-838d-4515-ab07-978a68025a88" absoluteBounds="5.015, 5.46, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab86f2b3-45aa-4cc7-a0cf-d1aab2e1ea4f" isExpanded="false" absoluteBounds="5, 4, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_ASSESSMENT_DS_ON_BY_FILTER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab1a7465-9711-4fef-b17c-f501ed41819a" absoluteBounds="5.015, 4.46, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f1c3a95-60cd-44f1-bf04-4473fa5cc52f" isExpanded="false" absoluteBounds="5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_EXCEL_ASSESSMENT_D" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82a1a887-a2c2-4f65-ad0e-eada0b764ef6" absoluteBounds="5.015, 5.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6faaa190-3595-454e-a99a-e5fdbf1d79b1" isExpanded="false" absoluteBounds="5, 6, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_EXCEL_ASSESSMENT_ON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cf99137-e8e2-4945-84e8-58b4f3d4466b" absoluteBounds="5.015, 6.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96394f63-4a25-4643-b0ef-cdd59352e9ca" isExpanded="false" absoluteBounds="0.5, 10, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_KPI_CASHIER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9dc44b3-21ef-4381-b235-b249601f7c5f" absoluteBounds="0.515, 10.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0cb2ea73-35b2-482c-aaed-47f8bfb9b81c" isExpanded="false" absoluteBounds="2.75, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_SECTIONS_CASHIER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b957b0c-73f2-4e7a-b692-310bd28cddae" absoluteBounds="2.765, 4.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="06067eec-0262-417b-845d-c9575a1db723" isExpanded="false" absoluteBounds="0.5, 10.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_M_NILAI_LEVEL_KPICASHIER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a17df23-2dcd-4ca9-8343-e4017842140f" absoluteBounds="0.515, 10.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9dd9e7f-2dea-4b1a-b97c-0eb8cfbc6397" isExpanded="false" absoluteBounds="5, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/VW_M_NILAI_LEVEL_KPICASHIER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fcb90e2-3838-4b61-8bb8-1c63ec109d6c" absoluteBounds="5.015, 6.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc77fcab-08ce-4910-8f3e-94a890d8b795" isExpanded="false" absoluteBounds="0.5, 8, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_T_ASSESSMENT_TEMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0fdd6ab-3764-4baf-9e0e-120389901e44" absoluteBounds="0.51500000000000012, 8.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b9019aa-9184-418f-8c4b-8186e145980c" isExpanded="false" absoluteBounds="0.5, 11, 2, 0.45">
+      <DataClassMoniker Name="/DB_KPIDataContext/TBL_R_SETTING_DATE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2314bccd-505a-48b7-97ed-09e24b6a901c" absoluteBounds="0.51499999999999968, 11.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

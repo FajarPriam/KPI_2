@@ -1,0 +1,326 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .bold-row {
+        font-weight: bold;
+    }
+</style>
+
+<h2>Assessment KPI</h2>
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Filter</h4>
+                <div class="form-group row mb-4">
+                    <div class="col-md-6">
+                        <label class="form-group-float-table is-visible">Distrik</label>
+                        <select class="form-select select2" style="width:100%" id="district" onchange="setDistrict()" required>
+                            <option></option>
+                        </select>
+                        <label id="warningDistrik" style='visibility:hidden; color:red; font-style:italic; font-size:small'>Tidak boleh kosong</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-group-float-table is-visible">Periode</label>
+                        <input type="number" id="periode" class="form-control" />
+                        <label id="warningPeriode" style='visibility:hidden; color:red; font-style:italic; font-size:small'>Rentang 1 - 12</label>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary block mb-2" onclick="FilterKPI()">Filter</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@if (@Session["Profile"].ToString() == "Admin")
+{*@
+<section class="section" id="cardUpload" style="display:none">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <form id="formUploadNilai" action='@(Session["path_api"] + "Create_ExcelAssessment")' method="post" enctype="multipart/form-data">
+                    <h4 class="card-title">Upload Assessment KPI</h4>
+                    <button class="btn btn-primary block mb-2" type="button" onclick="DownloadTemplate()">Download Template</button>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload File Excel</label>
+                        <input id="excel_Assessment" class="form-control" type="file" name="filename">
+                    </div>
+                    <button type="submit" class="btn btn-primary block mb-2">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+@*}*@
+
+
+<!--<section class="section" id="cardTabel" style="display:none">
+    <div class="card" >
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Assessment KPI</h4>-->
+                @*<button type="button" class="btn btn-primary block mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalAdd_DS" onclick="resetModal_DS()">
+            Add New
+        </button>*@
+                <!--<div class="table-responsive">
+                    <table class="table" id="tbl_assessment_DS">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">ID</th>
+                                <th class="text-center" scope="col">KPI Kabag</th>
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Item</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">Plan</th>
+                                <th class="text-center" scope="col">Actual</th>
+                                <th class="text-center" scope="col">Achievment</th>
+                                <th class="text-center" scope="col">Nilai</th>
+                                <th class="text-center" scope="col">Nilai for Kabag</th>
+                                <th class="text-center" scope="col">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div id="btn_SubmitAssessmentDS">-->
+                    @*<button type="button" class="btn btn-primary" id="EKI_btn" onclick="SubmitAssessmentDS()">Submit</button>*@
+                <!--</div>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+<section class="section" id="cardTabelDS" style="display:none">
+    <div class="card" >
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Assessment KPI Dept/Sect. Head</h4>
+                @*<button type="button" class="btn btn-primary block mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalAdd_DS" onclick="resetModal_DS()">
+            Add New
+        </button>*@
+                <!--<div class="table-responsive">
+        <table class="table" id="tbl_assessment_DS">
+            <thead class="text-center">
+                <tr>
+                    <th class="text-center" scope="col">ID</th>
+                    <th class="text-center" scope="col">KPI Kabag</th>
+                    <th class="text-center" scope="col">KPI Code</th>
+                    <th class="text-center" scope="col">KPI Item</th>
+                    <th class="text-center" scope="col">Bobot</th>
+                    <th class="text-center" scope="col">Jumlah Bobot</th>
+                    <th class="text-center" scope="col">Plan</th>
+                    <th class="text-center" scope="col">Plan Achievment</th>
+                    <th class="text-center" scope="col">Actual</th>
+                    <th class="text-center" scope="col">Achievment</th>
+                    <th class="text-center" scope="col">Nilai</th>
+                    <th class="text-center" scope="col">Nilai for Kabag</th>
+                    <th class="text-center" scope="col">Jumlah Nilai for Kabag</th>
+                    <th class="text-center" scope="col">Remark</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <div id="btn_SubmitAssessmentDS">-->
+                @*<button type="button" class="btn btn-primary" id="EKI_btn" onclick="SubmitAssessmentDS()">Submit</button>*@
+                <!--</div>-->
+                <div class="table-responsive">
+                    <table class="table" id="tbl_assessment_DS_baru">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">ID</th>
+                                @*<th class="text-center" scope="col">KPI Kabag</th>*@
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">Plan</th>
+                                <th class="text-center" scope="col">Plan Achievment</th>
+                                <th class="text-center" scope="col">Actual</th>
+                                <th class="text-center" scope="col">Achievment</th>
+                                <th class="text-center" scope="col">Nilai</th>
+                                <th class="text-center" scope="col">Nilai for Kabag</th>
+                                <th class="text-center" scope="col">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div id="btn_SubmitAssessmentDS">
+                    @*<button type="button" class="btn btn-primary" id="EKI_btn" onclick="SubmitAssessmentDS()">Submit</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="cardTabelON" style="display:none">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Assessment KPI Officer/Nonom</h4>
+                @*<button type="button" class="btn btn-primary block mb-2"
+                data-bs-toggle="modal" data-bs-target="#modalAdd_DS" onclick="resetModal_DS()">
+            Add New
+        </button>*@
+                @*<div class="table-responsive">
+                    <table class="table" id="tbl_assessment_ON">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">ID</th>
+                                <th class="text-center" scope="col">KPI</th>
+                                <th class="text-center" scope="col">KPI Item</th>
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">Jumlah Bobot</th>
+                                <th class="text-center" scope="col">Plan</th>
+                                <th class="text-center" scope="col">Actual</th>
+                                <th class="text-center" scope="col">Achievment</th>
+                                <th class="text-center" scope="col">Nilai</th>
+                                <th class="text-center" scope="col">Nilai for Officer</th>
+                                <th class="text-center" scope="col">Jumlah Nilai for Officer</th>
+                                <th class="text-center" scope="col">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br />*@
+                <!--<div id="btn_SubmitAssessmentON">-->
+                    @*<button type="button" class="btn btn-primary" id="EKI_btn" onclick="SubmitAssessmentDS()">Submit</button>*@
+                <!--</div>-->
+                <div class="table-responsive">
+                    <table class="table" id="tbl_assessment_ON_baru">
+                        <thead class="text-center">
+                            <tr>
+                                <th class="text-center" scope="col">ID</th>
+                                @*<th class="text-center" scope="col">KPI</th>
+                                <th class="text-center" scope="col">KPI Item</th>*@
+                                <th class="text-center" scope="col">KPI Code</th>
+                                <th class="text-center" scope="col">KPI Deskripsi</th>
+                                <th class="text-center" scope="col">Bobot</th>
+                                <th class="text-center" scope="col">Plan</th>
+                                <th class="text-center" scope="col">Actual</th>
+                                <th class="text-center" scope="col">Achievment</th>
+                                <th class="text-center" scope="col">Nilai</th>
+                                <th class="text-center" scope="col">Nilai for Officer</th>
+                                <th class="text-center" scope="col">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div id="btn_SubmitAssessmentON_baru">
+                    @*<button type="button" class="btn btn-primary" id="EKI_btn" onclick="SubmitAssessmentDS()">Submit</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section scripts{
+    <script src="~/Scripts/Page_Assessment.js"></script>
+}
+
+@*@using KPI.Models;
+    @model IList<VW_ITEM_KPI>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+
+
+
+@*<section class="section">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <h4 class="card-title">KPI Officer Nonom</h4>
+                    <table class="table table-striped" id="tbl_kpi">
+                        <thead>
+                            <tr>
+                                <th scope="col">DISTRICT</th>
+                                <th scope="col">PERIODE</th>
+                                <th scope="col">YEAR</th>
+                                <th scope="col">ITEM</th>
+                                <th class="text-center" scope="col">POINT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4" style="background-color: royalblue; color:white">COST & BUDGET OFFICER</td>
+                            </tr>
+                            @foreach (var item in Model.Where(a => a.ID_POS_EVALUATE == 1))
+                            {
+                                <tr>
+                                    <td><lable name="dstrct"></lable></td>
+                                    <td>@item.PERIODE</td>
+                                    <td>@item.YEAR</td>
+                                    <td>@item.ITEM_ON</td>
+                                    <td><input class="form-control" type="text" name="nilai" value="@item.POINT" data-id="@item.ID_ON" /></td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="4" style="background-color: royalblue; color: white">FINANCE & TAX OFFICER</td>
+                            </tr>
+                            @foreach (var item in Model.Where(a => a.ID_POS_EVALUATE == 2))
+                            {
+                                <tr>
+                                    <td><lable name="dstrct"></lable></td>
+                                    <td>@item.PERIODE</td>
+                                    <td>@item.YEAR</td>
+                                    <td>@item.ITEM_ON</td>
+                                    <td><input class="form-control" type="text" name="nilai" value="@item.POINT" data-id="@item.ID_ON" /></td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="4" style="background-color: royalblue; color: white">ASSET & VALIDATION OFFICER</td>
+                            </tr>
+                            @foreach (var item in Model.Where(a => a.ID_POS_EVALUATE == 3))
+                            {
+                                <tr>
+                                    <td><lable name="dstrct"></lable></td>
+                                    <td>@item.PERIODE</td>
+                                    <td>@item.YEAR</td>
+                                    <td>@item.ITEM_ON</td>
+                                    <td><input class="form-control" type="text" name="nilai" value="@item.POINT" data-id="@item.ID_ON" /></td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="4" style="background-color: royalblue; color: white">CASHIER</td>
+                            </tr>
+                            @foreach (var item in Model.Where(a => a.ID_POS_EVALUATE == 4))
+                            {
+                                <tr>
+                                    <td><lable name="dstrct"></lable></td>
+                                    <td>@item.PERIODE</td>
+                                    <td>@item.YEAR</td>
+                                    <td>@item.ITEM_ON</td>
+                                    <td><input class="form-control" type="text" name="nilai" value="@item.POINT" data-id="@item.ID_ON" /></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-primary block mb-2" onclick="SaveKPI()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>*@

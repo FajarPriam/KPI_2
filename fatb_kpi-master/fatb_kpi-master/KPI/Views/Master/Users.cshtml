@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <img class="card-img-top img-fluid" src="~/Content/assets/images/samples/origami.jpg"
+                 alt="Card image cap" style="height: 5rem" />
+            <div class="card-body">
+                <h4 class="card-title">Master Users</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAdd" onclick="resetModal()">
+                    Add Users
+                </button>
+                <table class="table table-striped" id="tbl_users">
+                    <thead>
+                        <tr>
+                            <th scope="col">Action</th>
+                            <th scope="col">NRP</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">District</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal fade" id="modalAdd" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+         role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAddTitle">
+                    Insert or Update User
+                </h5>
+                <button type="button" class="close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Username</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <input type="text" id="id_user" value="" hidden />
+                            <select class="form-select select2" style="width:100%" id="username">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Role</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <select class="form-select select2" style="width:100%" id="role">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary"
+                        data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+                <button type="button" class="btn btn-primary ml-1" id="btn_submit" onclick="InsertOrUpdateUser()">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Submit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Page_MasterUsers.js"></script>
+}

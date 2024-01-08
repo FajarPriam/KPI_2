@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <img class="card-img-top img-fluid" src="~/Content/assets/images/samples/origami.jpg"
+                 alt="Card image cap" style="height: 5rem" />
+            <div class="card-body">
+                <h4 class="card-title">Master Role</h4>
+                <button type="button" class="btn btn-primary block mb-2"
+                        data-bs-toggle="modal" data-bs-target="#modalAdd" onclick="resetModal()">
+                    Add Role
+                </button>
+                <table class="table table-striped" id="tbl_role">
+                    <thead>
+                        <tr>
+                            <th scope="col">Action</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">ROLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal fade" id="modalAdd" role="dialog"
+     aria-labelledby="modalAddTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+         role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAddTitle">
+                    Insert or Update Role
+                </h5>
+                <button type="button" class="close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Role</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <input type="text" id="id_role" value="" hidden/>
+                            <input type="text" id="role" class="form-control"
+                                   placeholder="Role">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary"
+                        data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+                <button type="button" class="btn btn-primary ml-1" id="btn_submit" onclick="InsertOrUpdateRole()">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Submit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Page_MasterRole.js"></script>
+    }

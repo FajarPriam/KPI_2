@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATB KPI</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+
+    <link href="~/Content/Datatables/datatables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/fontawesome/all.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/app.css">
+    <link href="~/Content/Select2/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/Css/modal-style.css" />
+    @*<link rel="shortcut icon" href="~/Content/assets/images/favicon.svg" type="image/x-icon">*@
+
+</head>
+
+<body>
+    <input type="text" id="hd_path" value="@Session["path_api"]" hidden />
+    <input type="text" id="hd_dstrct" value="@Session["District"]" hidden />
+    <input type="text" id="hd_nrp" value="@Session["Nrp"]" hidden />
+
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            FATB KPI
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    @Html.Action("Menu", "Menu")
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main" class='layout-navbar'>
+            <header class='mb-3'>
+                <nav class="navbar navbar-expand navbar-light ">
+                    <div class="container-fluid">
+                        <a href="#" class="burger-btn d-block">
+                            <i class="bi bi-justify fs-3"></i>
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="navbar-nav ms-auto mb-2 mb-lg-0"></div>
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-menu d-flex">
+                                        <div class="user-name text-end me-3">
+                                            <h6 class="mb-0 text-gray-600">@Session["Nama"].ToString()</h6>
+                                            <p class="mb-0 text-sm text-gray-600">@Session["Profile"].ToString()</p>
+                                        </div>
+                                        <div class="user-img d-flex align-items-center">
+                                            <div class="avatar bg-warning me-3">
+                                                <span class="avatar-content">@Session["UserInisial"].ToString()</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="/login/logout">
+                                            <i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div id="main-content">
+                <main>
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/content/assets/vendors/jquery/jquery.min.js"></script>
+
+    <script src="~/Content/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+    <script src="~/Content/Datatables/datatables.min.js"></script>
+    <script src="~/Content/assets/vendors/fontawesome/all.min.js"></script>
+    <script src="~/Content/Select2/js/select2.min.js"></script>
+
+    <script src="~/Content/assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.12.7/jszip.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.12.7/xlsx.full.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
